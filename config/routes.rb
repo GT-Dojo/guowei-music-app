@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'application#index'
 
+  resources :artists, only: %i[index create update destroy] do
+    resources :albums, only: %i[create]
+  end
+
   resources :artists, only: %i[index]
+
 
   get '*path', to: 'application#index'
 end

@@ -46,4 +46,13 @@ Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma
 
 RSpec/ExampleLength:
+
   Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+  Enabled: false
+
