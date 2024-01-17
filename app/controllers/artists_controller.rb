@@ -5,6 +5,7 @@ class ArtistsController < ApplicationController
     @artists = Artist.all
   end
 
+
   def create
     permitted_param = params.permit(:name)
 
@@ -24,4 +25,5 @@ class ArtistsController < ApplicationController
   def destroy
     Artist.destroy(params[:id])
   end
+
 end

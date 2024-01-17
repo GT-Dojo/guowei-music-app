@@ -3,12 +3,21 @@
 require 'rails_helper'
 
 RSpec.describe 'Artists' do
+
   describe 'GET /artists' do
     subject(:get_request) { get artists_path(artist), as: :json }
 
     let(:artist) { create(:artist) }
 
     it 'returns a list of artists created' do
+
+  describe 'GET /index' do
+    subject(:get_request) { get artists_path, as: :json }
+
+    it 'returns a list of artists created', :aggregate_failures do
+      artist = create(:artist)
+
+
       get_request
 
       expect(response).to have_http_status(:ok)
@@ -22,6 +31,7 @@ RSpec.describe 'Artists' do
       )
     end
   end
+
 
   describe 'POST /artists' do
     subject(:post_request) { post artists_path, params:, as: :json }
@@ -79,4 +89,5 @@ RSpec.describe 'Artists' do
       end.to change(Artist, :count).by(-1)
     end
   end
+
 end

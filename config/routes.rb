@@ -10,5 +10,8 @@ Rails.application.routes.draw do
     resources :albums, only: %i[create]
   end
 
+  resources :artists, only: %i[index]
+
+
   get '*path', to: 'application#index'
 end
